@@ -24,7 +24,7 @@ set smarttab
 " set shiftwidth=4
 " set softtabstop=4
 " set tabstop=4
-" by default, the indent is 2 spaces. 
+" by default, the indent is 2 spaces.
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2

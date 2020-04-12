@@ -12,7 +12,6 @@ source ~/.vim/config/netrw.vim
 
 source ~/.vim/config/d-is-delete.vim
 
-source ~/.vim/config/fzf.vim
+source  ~/.vim/config/fzf.vim
 
 source ~/.vim/config/mappings.vim
-
