@@ -12,5 +12,15 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'tmhedberg/matchit'
+Plug 'mattn/emmet-vim'
+Plug 'leafoftree/vim-vue-plugin'
+Plug 'aklt/plantuml-syntax'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'dpelle/vim-languagetool'
+Plug 'ap/vim-css-color'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'gregsexton/gitv'
 call plug#end()

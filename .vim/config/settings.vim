@@ -4,6 +4,7 @@ set nocompatible
 filetype plugin indent on
 " Auto read files edited outside vim
 set autoread
+set autochdir
 
 " Vim perfomance
 set ttyfast
@@ -59,10 +60,10 @@ set listchars=tab:▸\ ,trail:·
 " Text Rendering
 set encoding=utf-8
 set colorcolumn=100
-
+set nowrap
+set sidescroll=1
 " Always open vertical splits on the right
 set splitright
-set termwinsize="10*0"
 
 " Show suggestions on command mode
 set wildmenu
@@ -72,3 +73,6 @@ set wildignore+=*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,**/node_modules/**
 
 set noeb vb t_vb=
 set nofoldenable
+
+" Recognize .tex files as latex (instead of plaintex) for syntax highlighting.
+let g:tex_flavor="latex"

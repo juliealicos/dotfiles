@@ -38,7 +38,16 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
+function! RipgrepFzfNoRhap(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always -g "!{*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,*.cls,*.sbs,node_modules}" --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RGN call RipgrepFzfNoRhap(<q-args>, <bang>0)
 
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>P :Files!<CR>
