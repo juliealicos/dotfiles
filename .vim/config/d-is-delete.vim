@@ -13,6 +13,9 @@ nnoremap X "_X
 nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
+nnoremap c "_c
+nnoremap C "_C
+vnoremap c "_c
 
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus

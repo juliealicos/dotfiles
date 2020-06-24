@@ -1,5 +1,5 @@
 let $FZF_DEFAULT_COMMAND = 'rg --files -g "!{*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,node_modules}"'
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~30%' }
 
 let g:fzf_preview_window = 'right:50%'
 
@@ -9,6 +9,9 @@ function! s:build_quickfix_list(lines)
   botright copen
   cc
 endfunction
+
+autocmd! FileType fzf set noruler nonumber norelativenumber
+  \| autocmd BufLeave <buffer> set ruler rnu nu
 
 " Ctrl-q allows to select multiple elements an open them in quick list
 let g:fzf_action = {
@@ -31,24 +34,21 @@ command! -bang -complete=dir -nargs=* LSA
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! RipgrepFzf(query, fullscreen)
-    let command_fmt = 'rg --column --line-number --no-heading --color=always -g "!{*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,node_modules}" --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+  let initial_command = 'rg
+        \ --column
+        \ --line-number
+        \ --no-heading
+        \ --color=always -g "!{*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,node_modules}"
+        \ --smart-case '.a:query.' || true'
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(), a:fullscreen)
 endfunction
 
-function! RipgrepFzfNoRhap(query, fullscreen)
-    let command_fmt = 'rg --column --line-number --no-heading --color=always -g "!{*.swp,*.bak,*.pyc,*.class,*.o,*.log,*.so,*.cls,*.sbs,node_modules}" --smart-case %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
+command! -nargs=* -bang -complete=dir Rg call RipgrepFzf(<q-args>, <bang>0)
 
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-command! -nargs=* -bang RGN call RipgrepFzfNoRhap(<q-args>, <bang>0)
-
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>P :Files!<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>p :Files<CR><F2>
+nnoremap <leader>P :Files!<CR><F2>
+nnoremap <leader>b :Buffers<CR><F2>
+nnoremap <leader>l :BLines<CR><F2>
+nnoremap <leader>L :Lines<CR><F2>
+nnoremap <leader>t :BTags<CR><F2>
+nnoremap <leader>T :Tags<CR><F2>
