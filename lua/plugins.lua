@@ -3,9 +3,6 @@ return require('packer').startup(
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
 
-        -- Dracula Theme
-        use 'dracula/vim'
-
         -- Lualine
         use {
             'nvim-lualine/lualine.nvim',
