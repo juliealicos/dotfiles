@@ -1,6 +1,10 @@
 require('plugins')
 
 vim.cmd[[
+    colorscheme dracula
+]]
+
+vim.cmd[[
     set nocompatible
     filetype plugin indent on
 
@@ -133,12 +137,10 @@ require('lualine').setup {
         lualine_y = {},
         lualine_z = {
             {
-                displayRow,
-                color = 'RowActiveHl'
+                displayRow
             },
             {
-                displayColumn,
-                color = 'ColActiveHl'
+                displayColumn
             }
         }
     },
@@ -155,12 +157,10 @@ require('lualine').setup {
         lualine_y = {},
         lualine_z = {
             {
-                displayRow,
-                color = 'lualine_c_inactive'
+                displayRow
             },
             {
-                displayColumn,
-                color = 'lualine_c_inactive'
+                displayColumn
             }
         }
 
