@@ -9,3 +9,6 @@ require('nvim_config')
 
 -- load config for lualine plugin
 require('lualine_config')
+
+-- load custom key bindings
+require('mappings_config')

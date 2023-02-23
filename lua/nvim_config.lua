@@ -31,7 +31,11 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 
-vim.opt.clipboard=unnamedplus
+if vim.fn.has('unnamedplus') then
+  vim.opt.clipboard=[[unnamed,unnamedplus]]
+else
+  vim.opt.clipboard=[[unnamed]]
+end
 
 -- Enable fuzzy search on find
 vim.opt.path:append("**")
