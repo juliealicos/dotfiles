@@ -12,3 +12,9 @@ require('lualine_config')
 
 -- load custom key bindings
 require('mappings_config')
+
+-- Treesitter for syntax highlighting
+require('treesitter_config')
+
+-- LSP config
+require('lsp_config')

@@ -12,6 +12,7 @@ return require('packer').startup(
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
+    -- For syntax highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run =
@@ -20,6 +21,8 @@ return require('packer').startup(
             ts_update()
         end
     }
+
+    use 'neovim/nvim-lspconfig'
 
     -- use {
     --     'nvim-tree/nvim-tree.lua',
