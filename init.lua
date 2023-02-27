@@ -18,3 +18,6 @@ require('treesitter_config')
 
 -- LSP config
 require('lsp_config')
+
+-- FZF config
+require('fzf_lua_config')

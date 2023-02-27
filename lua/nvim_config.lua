@@ -85,6 +85,7 @@ vim.opt.vb = true
 -- fold
 vim.opt.foldenable = false
 
+-- Enable/disable cursorline on enter/leave
 utils.create_augroup({
     {'VimEnter', '*', 'setlocal', 'cursorline'},
     {'WinEnter', '*', 'setlocal', 'cursorline'},

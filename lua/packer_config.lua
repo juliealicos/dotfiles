@@ -24,6 +24,11 @@ return require('packer').startup(
 
     use 'neovim/nvim-lspconfig'
 
+    use { 'ibhagwan/fzf-lua',
+      -- optional for icon support
+      -- requires = { 'nvim-tree/nvim-web-devicons' }
+    }
+
     -- use {
     --     'nvim-tree/nvim-tree.lua',
     --     requires = {
