@@ -12,7 +12,9 @@ require("nvim-tree").setup({
     icons = {
       glyphs = {
         folder = {
-          arrow_closed = "❯"
+          -- Uses Fura Nerd Font Mono
+          arrow_closed = '',
+          arrow_open = '',
         }
       }
     }
