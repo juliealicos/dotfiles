@@ -27,3 +27,5 @@ require('nvim_tree_config')
 
 -- comment.nvim config
 require('comment_nvim_config')
+
+require('terminal_config')
