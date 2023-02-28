@@ -1,7 +1,7 @@
 -- Use telescope default profile and override default previewer to 'bat'
 
 -- change default color of border (White)
-vim.api.nvim_set_hl(0, 'FzfCustomFloatBorderHl', {fg = "#5f5f5f"})
+vim.api.nvim_set_hl(0, 'FzfCustomFloatBorderHl', {fg = '#6271A4'})
 
 require('fzf-lua').setup({'telescope',
     winopts = {

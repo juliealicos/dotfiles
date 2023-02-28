@@ -11,6 +11,13 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
+-- Also add border on diagnostic float window
+vim.diagnostic.config({
+  float = {
+    border = 'rounded'
+  }
+})
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -32,8 +39,7 @@ local on_attach = function(client, bufnr)
                       -- end,
                       signs = true,
                       -- Disable a feature
-                      update_in_insert = false,
-                      float = { border = 'rounded' }
+                      update_in_insert = false
                   }
                   )
 
