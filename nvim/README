@@ -1,0 +1,5 @@
+Dependencies
+    * Packer - Plugin Package manager
+    * FZF - for fuzzy search (latest: 0.38 at moment of writing)
+    * Node - for treesitter language installation
+    * tree-sitter-cli - better syntax highlighting
