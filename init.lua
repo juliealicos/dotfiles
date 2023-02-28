@@ -21,3 +21,9 @@ require('lsp_config')
 
 -- FZF config
 require('fzf_lua_config')
+
+-- nvim-tree config
+require('nvim_tree_config')
+
+-- comment.nvim config
+require('comment_nvim_config')

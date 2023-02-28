@@ -17,8 +17,8 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
+  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'})
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
                   vim.lsp.diagnostic.on_publish_diagnostics, {
                       -- Enable underline, use default values
@@ -33,6 +33,7 @@ local on_attach = function(client, bufnr)
                       signs = true,
                       -- Disable a feature
                       update_in_insert = false,
+                      float = { border = 'rounded' }
                   }
                   )
 
@@ -63,10 +64,10 @@ local lsp_flags = {
 }
 
 -- setup LSP here
-require('lspconfig')['pyright'].setup{
+require('lspconfig')['pyright'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
-}
+})
 
 
 -- Addtional mappings for LSP

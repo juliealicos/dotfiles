@@ -1,16 +1,16 @@
 -- vim.opt.foldmethod     = 'expr'
 -- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
 ---WORKAROUND
-vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
-  group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
-  callback = function()
-    vim.opt.foldmethod     = 'expr'
-    vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
-  end
-})
+-- vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEnter'}, {
+--   group = vim.api.nvim_create_augroup('TS_FOLD_WORKAROUND', {}),
+--   callback = function()
+--     vim.opt.foldmethod     = 'expr'
+--     vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+--   end
+-- })
 ---ENDWORKAROUND
 
-require'nvim-treesitter.configs'.setup {
+require'nvim-treesitter.configs'.setup({
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
   ensure_installed = {
       "bash",
@@ -71,4 +71,4 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-}
+})
