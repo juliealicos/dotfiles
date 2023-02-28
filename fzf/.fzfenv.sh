@@ -1,3 +1,5 @@
+# Source this file on your shell's profile
+
 # Dracula theme for fzf
 export FZF_DEFAULT_OPTS="--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9"
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --color=fg+:#f8f8f2,bg+:#282a36,hl+:#bd93f9"
