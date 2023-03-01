@@ -12,5 +12,8 @@ vim.api.nvim_set_hl(0, 'SpecialKey', {fg = "#5f5f87"})
 vim.api.nvim_set_hl(0, 'Whitespace', {fg = "#5f5f87"})
 
 -- Make Float match Dracula bg color, also change border color
-vim.api.nvim_set_hl(0, "NormalFloat", {bg = 'None', fg = 'None'})
+vim.api.nvim_set_hl(0, "NormalFloat", {bg = 'None'})
 vim.api.nvim_set_hl(0, "FloatBorder", {bg = 'None', fg = '#6271A4'})
+vim.api.nvim_set_hl(0, "LspInfoBorder", {bg = 'None', fg = '#6271A4'})
+
+require('lspconfig.ui.windows').default_options.border = 'rounded'

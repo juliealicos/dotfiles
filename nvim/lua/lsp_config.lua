@@ -75,6 +75,35 @@ require('lspconfig')['pyright'].setup({
     flags = lsp_flags,
 })
 
+require('lspconfig')['cssls'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+require('lspconfig')['cssmodules_ls'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+require('lspconfig')['eslint'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+require('lspconfig')['html'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+require('lspconfig')['jsonls'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
+
+require('lspconfig')['sqlls'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+})
 
 -- Addtional mappings for LSP
 local t = function(str)

@@ -12,11 +12,13 @@
 
 require'nvim-treesitter.configs'.setup({
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
+  -- Add language grammar here
   ensure_installed = {
       "bash",
       "c",
       "cmake",
       "comment",
+      "css",
       "dockerfile",
       "git_rebase",
       "gitcommit",
