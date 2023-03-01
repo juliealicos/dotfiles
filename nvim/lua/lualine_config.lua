@@ -17,6 +17,7 @@ require('lualine').setup({
     section_separators = {'|'},
   },
   sections = {
+    lualine_b = {},  -- disable git branch, status
     lualine_c = {
       {'filename', path = 1}
     },
