@@ -1,5 +1,3 @@
-local utils = require('utils')
-
 vim.opt.syntax = on
 vim.opt.swapfile = false
 
@@ -85,10 +83,19 @@ vim.opt.vb = true
 -- fold
 vim.opt.foldenable = false
 
--- Enable/disable cursorline on enter/leave
-utils.create_augroup({
-    {'VimEnter', '*', 'setlocal', 'cursorline'},
-    {'WinEnter', '*', 'setlocal', 'cursorline'},
-    {'BufWinEnter', '*', 'setlocal', 'cursorline'},
-    {'WinLeave', '*', 'setlocal', 'nocursorline'}
-}, 'CursorLine')
+-- Cursorline highlighting control
+--  Only have it on in the active buffer
+vim.opt.cursorline = true -- Highlight the current line
+local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+local set_cursorline = function(event, value, pattern)
+  vim.api.nvim_create_autocmd(event, {
+    group = group,
+    pattern = pattern,
+    callback = function()
+      vim.opt_local.cursorline = value
+    end,
+  })
+end
+
+set_cursorline("WinLeave", false)
+set_cursorline("WinEnter", true)
