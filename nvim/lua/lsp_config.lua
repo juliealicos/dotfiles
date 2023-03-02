@@ -70,40 +70,30 @@ local lsp_flags = {
 }
 
 -- setup LSP here
-require('lspconfig')['pyright'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
+-- Listed LSP should be installed in the system manually
+local servers = {
+    'bashls',
+    'clangd',
+    'cmake',
+    'cssls',
+    'cssmodules_ls',
+    'dockerls',
+    'eslint',
+    'html',
+    'jsonls',
+    'pyright',
+    'sqlls',
+    'yamlls'
+ }
 
-require('lspconfig')['cssls'].setup({
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup({
     on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-require('lspconfig')['cssmodules_ls'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-require('lspconfig')['eslint'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-require('lspconfig')['html'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-require('lspconfig')['jsonls'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-require('lspconfig')['sqlls'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
+    flags = lsp_flags
+  })
+end
 
 -- Addtional mappings for LSP
 local t = function(str)
