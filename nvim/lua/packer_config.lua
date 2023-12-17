@@ -48,6 +48,19 @@ return require('packer').startup(
       requires = {
         'nvim-tree/nvim-web-devicons', -- optional, for file icons
       },
+
     }
+
+    -- use 'brenoprata10/nvim-highlight-colors'
+    -- use 'ap/vim-css-color'
+    use 'NvChad/nvim-colorizer.lua'
+
+    use 'tpope/vim-surround'
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
   end
 )
