@@ -1,20 +1,19 @@
 [core]
-    editor = vim
+    editor = $GIT_EDITOR
 [difftool]
     prompt = true
 [diff]
-    tool = nvimdiff
-[difftool "nvimdiff"]
-    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
+    tool = vim
+[difftool "vim"]
+    cmd = "$EDITOR -d \"$LOCAL\" \"$REMOTE\""
 [user]
     name = Carlo Gravador
     email = cce.gravador@gmail.com
 [pager]
     branch = false
 [merge]
-    tool = vimdiff
+    tool = vim
 [mergetool]
     keepBackup = false
-
-[mergetool "vimdiff"]
-    cmd = vim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "vim"]
+    cmd = $EDITOR -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

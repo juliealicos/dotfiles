@@ -42,3 +42,7 @@ ctrl + alt - j : yabai -m window --warp south
 ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
+
+# start / stop yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service

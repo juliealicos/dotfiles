@@ -60,4 +60,4 @@ require 'colorizer'.setup {
 
 }
 -- require('nvim-highlight-colors').setup {}
-vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'

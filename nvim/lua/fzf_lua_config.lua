@@ -25,6 +25,7 @@ require('fzf-lua').setup({'telescope',
 vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>fl', ':FzfLua lines<CR>', {noremap = true})
+vim.keymap.set('n', '<leader>bl', ':FzfLua blines<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>ft', ':FzfLua tabs<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>gr', ':FzfLua live_grep<CR>', {noremap = true})
 vim.keymap.set('n', '<leader>gw', ':FzfLua grep_cword<CR>', {noremap = true})

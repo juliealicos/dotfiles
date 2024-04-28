@@ -95,12 +95,6 @@ for _, lsp in ipairs(servers) do
   })
 end
 
-require('lspconfig')['clangd'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-
-
 -- Addtional mappings for LSP
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
