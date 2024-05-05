@@ -13,6 +13,8 @@ return {
         vim.g.dracula_colorterm = 1
 
         if (vim.g.colors_name == 'dracula' ) then
+            vim.api.nvim_set_hl(0, 'DraculaCyan', {fg = "#02AFFF"})
+
             -- To make SpecialKey and Whitespace chars visible on cursorline with Dracula Theme
             vim.api.nvim_set_hl(0, 'SpecialKey', {fg = "#5f5f87"})
             vim.api.nvim_set_hl(0, 'Whitespace', {fg = "#5f5f87"})

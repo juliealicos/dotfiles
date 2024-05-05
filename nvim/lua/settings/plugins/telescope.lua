@@ -12,6 +12,14 @@ return {
         local actions = require("telescope.actions")
         local telescope_tabs = require("telescope-tabs")
 
+        -- Disable cursorline for TelescopePrompt Filetype
+        vim.cmd[[
+            augroup DisableCursorlineForTelescopePrompt
+                autocmd!
+                autocmd FileType TelescopePrompt lua vim.wo.cursorline = false
+            augroup END
+        ]]
+
         telescope.setup({
             defaults = {
                 -- path_display = { "smart" },
@@ -21,7 +29,6 @@ return {
                         ["<C-j>"] = actions.move_selection_next, -- move to next result
                         ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to qflist and open
                         ["<C-a>"] = actions.select_all, -- send selected to qflist and open
-                        ["<Esc>"] = actions.close
                         -- vim.keymap.set("i", "<Esc>", "<C-c>", { desc = "Exit telescope" })
                     },
                 },
@@ -50,8 +57,8 @@ return {
         --
         if (vim.g.colors_name == 'dracula' ) then
             vim.api.nvim_set_hl(0, "TelescopeBorder", {bg = 'None', fg = '#6271A4'})
-            vim.api.nvim_set_hl(0, "TelescopePromptCounter", {bg = 'None', fg = '#6271A4'})
-            vim.api.nvim_set_hl(0, "DraculaBgLighter", {bg = '#6271A4', fg = '#FFFFFF'})
+            -- vim.api.nvim_set_hl(0, "TelescopePromptCounter", {bg = 'None', fg = '#6271A4'})
+            vim.api.nvim_set_hl(0, "TelescopePromptCounter", {bg = 'None', fg = '#02AFFF'})
         end
     end,
 }
