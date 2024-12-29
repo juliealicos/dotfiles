@@ -62,38 +62,20 @@ return {
                 vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
                 -- opts.desc = "Show LSP type definitions"
-                -- vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+                vim.keymap.set("n", "st", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
-                opts.desc = "Toggle diagnostic float"
-                vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-                -- vim.keymap.set('n', '<leader>i', function()
-                --     -- If we find a floating window, close it.
-                --     local found_float = false
-                --     for _, win in ipairs(vim.api.nvim_list_wins()) do
-                --         if vim.api.nvim_win_get_config(win).relative ~= '' then
-                --             vim.api.nvim_win_close(win, true)
-                --             found_float = true
-                --         end
-                --     end
-                --
-                --     if found_float then
-                --         return
-                --     end
-                --
-                --     vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
-                -- end, { desc = 'Toggle Diagnostics' })
+                opts.desc = "Show line diagnostics"
+                vim.keymap.set('n', '<leader>sd', vim.diagnostic.open_float, opts)
+
+                opts.desc = "Show buffer diagnostics"
+                vim.keymap.set("n", "<leader>sD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+
 
                 opts.desc = "See available code actions"
                 vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
                 opts.desc = "Smart rename"
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-                opts.desc = "Show buffer diagnostics"
-                vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
-                opts.desc = "Show line diagnostics"
-                vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
                 opts.desc = "Go to previous diagnostic"
                 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer

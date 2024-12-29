@@ -85,6 +85,9 @@ vim.opt.vb = true
 
 -- fold
 vim.opt.foldenable = false
+-- Set folding method to 'expr' for Tree-sitter
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Cursorline highlighting control
 --  Only have it on in the active buffer

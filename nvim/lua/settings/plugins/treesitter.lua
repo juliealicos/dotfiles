@@ -54,6 +54,15 @@ return {
                 },
             },
 
+            indent = {
+                enable = true,
+            },
+
+            folding = {
+                enable = true,  -- Enable Tree-sitter folding
+                disable = {},   -- Disable specific languages if needed
+            },
+
             ensure_installed = {
                 "bash",
                 "c",
