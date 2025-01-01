@@ -48,3 +48,15 @@ vim.keymap.set('n', '<Esc>', function()
     end
 
 end, { noremap = true, silent = true})
+
+-- Function to remove trailing whitespace
+function RemoveTrailingWhitespace()
+  local save_cursor = vim.fn.getpos(".")
+  vim.cmd([[%s/\s\+$//e]])
+  vim.fn.setpos(".", save_cursor)
+end
+
+-- Keymap to trigger the function with F6
+vim.keymap.set( "n", "<F6>", function()
+    RemoveTrailingWhitespace()
+end, { noremap = true, silent = true })
