@@ -30,14 +30,9 @@ return {
                 'bashls',
                 'clangd',
                 'cmake',
-                'cssls',
-                'cssmodules_ls',
                 'dockerls',
-                'eslint',
-                'html',
                 'jsonls',
                 'pyright',
-                'sqlls',
                 'yamlls'
             },
         })
