@@ -22,6 +22,14 @@ end
 vim.keymap.set('n', '<leader>+', '<C-a>', {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>-', '<C-x>', {noremap = true, silent = true})
 
+vim.keymap.set('n', '<leader>nt', ':!tmux new-window -c %:p:h<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>nv', ':!tmux split-window -h -c %:p:h<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>nh', ':!tmux split-window -v -c %:p:h<CR>', {noremap = true, silent = true})
+
+vim.keymap.set("n", "gF", ":tabedit <C-R>=expand('<cfile>')<CR><CR>", { silent = true })
+
+-- vim.keymap.set('n', '<CR>', 'O<Esc>', {noremap = true, silent = true})
+
 -- Highlight occurrences of the word under the cursor without moving the cursor
 vim.keymap.set('n', '*', function()
   local word = vim.fn.expand('<cword>') -- Get the word under the cursor
