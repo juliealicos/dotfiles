@@ -1,0 +1,57 @@
+From ac8681ecb0b1e675bc95410549d9d5a196c233da Mon Sep 17 00:00:00 2001
+From: Julie Ann Alicos <julie.ann.alicos@volvocars.com>
+Date: Mon, 19 May 2025 10:52:46 +0200
+Subject: [PATCH] Modifications
+
+---
+ scripts/disk_usage.sh  | 4 ++++
+ scripts/dracula.sh     | 8 ++++++++
+ scripts/week_number.sh | 7 +++++++
+ 3 files changed, 19 insertions(+)
+ create mode 100755 scripts/disk_usage.sh
+ create mode 100755 scripts/week_number.sh
+
+diff --git a/scripts/disk_usage.sh b/scripts/disk_usage.sh
+new file mode 100755
+index 0000000..6c55007
+--- /dev/null
++++ b/scripts/disk_usage.sh
+@@ -0,0 +1,3 @@
++#!/bin/bash
++
++echo "DISK $(df -h / | awk 'NR==2 {print $4}')"
+diff --git a/scripts/dracula.sh b/scripts/dracula.sh
+index c0939aa..3c8167f 100755
+--- a/scripts/dracula.sh
++++ b/scripts/dracula.sh
+@@ -204,6 +204,14 @@ main()
+       IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-ram-usage-colors" "cyan dark_gray")
+       script="#($current_dir/gpu_ram_info.sh)"
+ 
++    elif [ $plugin = "disk-usage" ]; then
++      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-disk-usage-colors" "green dark_gray")
++      script="#($current_dir/disk_usage.sh)"
++
++    elif [ $plugin = "week" ]; then
++      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-disk-usage-colors" "pink dark_gray")
++      script="#($current_dir/week_number.sh)"
++
+     elif [ $plugin = "gpu-power-draw" ]; then
+       IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-power-draw-colors" "green dark_gray")
+       script="#($current_dir/gpu_power.sh)"
+diff --git a/scripts/week_number.sh b/scripts/week_number.sh
+new file mode 100755
+index 0000000..147ba69
+--- /dev/null
++++ b/scripts/week_number.sh
+@@ -0,0 +1,7 @@
++#!/bin/bash
++
++# Get the current week number
++WEEK_NUMBER=$(date +%V)
++
++# Display the result
++echo "W$WEEK_NUMBER"
+-- 
+2.34.1
+
